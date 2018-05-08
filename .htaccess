@@ -1,0 +1,12 @@
+RewriteEngine on
+# Allow any files or directories that exist to be displayed directly
+RewriteCond ${REQUEST_URI} ^.+$
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml)$ [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^ - [L]
+RewriteRule ^cmi/ cmi/index.php
+RewriteRule ^cmi/es/ cmi/es/control.php
+#ErrorDocument 404 http://localhost/
+#ErrorDocument 500 http://localhost/
