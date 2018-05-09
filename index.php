@@ -10,9 +10,9 @@
     if($_POST){  
         $val = $user->validateUser($_POST);
       if ($val)
-          echo 'BIENVENIDO';
+          echo 0;
       else    
-            echo 'DENEGADO';
+          echo 1;
       
     }                   
 ?>
