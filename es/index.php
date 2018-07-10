@@ -1,5 +1,6 @@
 <?php 
 require_once '../dictionary/urls.php';
+require_once '../dictionary/views.php';
 require_once '../core/bo/Log.php';
 require_once '../core/bo/HtmlBo.php';
 require 'control.php';
