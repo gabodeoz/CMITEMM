@@ -6,12 +6,12 @@ require_once '../core/bo/HtmlBo.php';
 require 'control.php';
 
 $str_url = $_SERVER['REQUEST_URI'];
-$metod = str_replace(ROOT, '', $str_url);
-$metod = str_replace(HOME, '', $metod);
-$metod = str_replace('/', '', $metod);
+$view = str_replace(ROOT, '', $str_url);
+$view = str_replace(HOME, '', $view);
+$view = str_replace('/', '', $view);
 
 $control = new Control();
-$control-> handler($metod);
+$control-> handler_views($view);
 
 
 ?>
