@@ -4,8 +4,8 @@
  *
  * @author Microtemm
  */
-class HtmlBo {
-     private function render_dinamic($html = '', $array_de_resultados, $regex = '', $comodines = array()) {
+class  HtmlBo {
+    protected function render_dinamic($html = '', $array_de_resultados, $regex = '', $comodines = array()) {
         //print_r($array_de_resultados);
         $array_coincidencias = array();
         $template = get_template($html);
@@ -22,43 +22,23 @@ class HtmlBo {
         return $html;
     }
 
-    private function getHtml($path,$html_file = '') {
-         $file = $path . $html_file . '.html';
-         $template = file_get_contents($file);
-         return $template;
-    }
-    
-    public function getVIew($view, $data = array()){         
-        $html='';
-        switch ($view){
-        CASE VIEW_LOGIN :
-            $html = $this->getHtml(PATH_TEMPLATE, $view);
-            $html = str_replace('<!--#title%-->','CMI',$html);
-            $html = str_replace('<!--#'. $view .'%-->',$this->getHtml(PATH_FORM , $view),$html);             
-        break;
-        //default:
-          //  $html = $this->getHtml(PATH_TEMPLATE,VIEW_DEFAULTT);            
+    protected function getHtml($path, $html_file = '') {
+        $template = '';
+        $file_path = $path . $html_file . '.html';
+        echo $file_path;
+        if (is_readable($file_path)) {
+            $template = file_get_contents($file_path);
+        }else{
+            $template = $this->getHtml(TEMPLATE,VIEW_DEFAULT);             
         }
-        print $html;
+        return $template;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-
-    function render_dinamic_data($html, $data) {
+    protected function render_dinamic_data($html, $data) {
         foreach ($data[0] as $clave => $valor) {
             $html = str_replace('<!--#' . $clave . '%-->', $valor, $html);
         }
         return $html;
     }
-
-   // $form = file_get_contents($file);
-    
 
 }
