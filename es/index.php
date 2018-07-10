@@ -9,6 +9,9 @@ $str_url = $_SERVER['REQUEST_URI'];
 $metod = str_replace(ROOT, '', $str_url);
 $metod = str_replace(HOME, '', $metod);
 $metod = str_replace('/', '', $metod);
-handler($metod);
+
+$control = new Control();
+$control-> handler($metod);
+
 
 ?>
