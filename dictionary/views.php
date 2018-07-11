@@ -7,4 +7,6 @@
     #RENDERED
     const TITULO = '<!--#title%-->';
     const FORM_LOGIN = '<!--#login%-->';
+    const REGEX_FORM= '<!--#form%-->';
+    const REGEX_BODY='<!--#body%-->';
 ?>    

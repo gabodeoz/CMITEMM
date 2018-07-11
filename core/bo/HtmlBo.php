@@ -25,7 +25,7 @@ class  HtmlBo {
     protected function getHtml($path, $html_file = '') {
         $template = '';
         $file_path = $path . $html_file . '.html';
-        echo $file_path;
+        
         if (is_readable($file_path)) {
             $template = file_get_contents($file_path);
         }else{
