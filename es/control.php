@@ -4,6 +4,9 @@ class Control extends HtmlBo {
    public function handler_views ($view = '') {
         $html = '';
         switch ($view) {
+            case VIEW_ALTA_EMPLEADO:
+                $html = $this->view_selected($view,'Alta empleado',PATH_FORM);                
+                break;
             case VIEW_REPORTE_INVENTARIO:
                 $html = $this->view_selected($view,'Reporte de inventario',PATH_FORM);                
                 break; 
