@@ -7,6 +7,7 @@
     const VIEW_ALTA_MASIVA_EQUIPOS = 'alta-masiva-equipos';
     const VIEW_CONSULTA_EQUIPOS = 'consulta-equipos';
     const VIEW_MAIN = 'main';
+    const VIEW_ALTA_EMPLEADO = 'alta-empleado';
     
     #RENDERED
     const TITULO = '<!--#title%-->';   
