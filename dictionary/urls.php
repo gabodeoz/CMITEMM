@@ -3,5 +3,6 @@
     const HOME ='es';    
     const PATH_TEMPLATE ='../assets/html/templates/template-';
     const PATH_FORM ='../assets/html/forms/form-';
+    const PATH_TABLE ='../assets/html/datatables/table-';
     const PATH_IMG ='../assets/img/';    
 ?>

@@ -29,7 +29,7 @@ class  HtmlBo {
         if (is_readable($file_path)) {
             $template = file_get_contents($file_path);
         }else{
-            $template = $this->getHtml(TEMPLATE,VIEW_DEFAULT);             
+            $template = $this->getHtml(PATH_TEMPLATE,VIEW_DEFAULT);             
         }
         return $template;
     }
