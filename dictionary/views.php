@@ -16,7 +16,8 @@
     const VIEW_MAIN = 'main';
         
     #RENDERED
-    const TITULO = '<!--#title%-->';   
+    const TITLE = '<!--#title%-->';   
     const REGEX_FORM= '<!--#form%-->';
     const REGEX_BODY='<!--#body%-->';
+    const ACTION='<!--#action%-->';
 ?>    
