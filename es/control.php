@@ -51,10 +51,12 @@ class Control extends HtmlBo {
         } else {
             $str_html = $this->getHtml(PATH_TEMPLATE, VIEW_MAIN);
         }
-        $str_html = str_replace(TITLE, $title, $str_html);
-         echo $str_action =PATH_CORE.$action;
-        $str_html = str_replace(ACTION,$str_action, $str_html);
         $str_html = str_replace(REGEX_BODY, $this->getHtml($path, $view), $str_html);
+        $str_html = str_replace(TITLE, $title, $str_html);
+        $path_action =PATH_CORE.$action;
+        $str_html = str_replace("%action%", $path_action, $str_html);
+        
+        
         return $str_html;
     }
 

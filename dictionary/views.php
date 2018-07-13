@@ -18,5 +18,5 @@
     const TITLE = '<!--#title%-->';   
     const REGEX_FORM= '<!--#form%-->';
     const REGEX_BODY='<!--#body%-->';
-    const ACTION='#action%';
+    const ACTION='%action%';
 ?>    
