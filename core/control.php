@@ -3,14 +3,13 @@ class Control  {
    public function handler_request ($request = '', $data = array()) {
         $response= '';
         switch ($request) {
-           default:
+          case  CREATE_USER:
                $user = new Users();               
                $user->createUser($data);
-        }//.switch 
-               
+               break;
+        }//.switch                
         print ($response);
     }        
 //.handler
 }
-
 ?>

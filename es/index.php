@@ -1,6 +1,7 @@
 <?php 
 require_once '../dictionary/paths.php';
 require_once '../dictionary/views.php';
+require_once '../dictionary/requests.php';
 require_once '../core/bo/Log.php';
 require_once '../core/bo/HtmlBo.php';
 require 'control.php';

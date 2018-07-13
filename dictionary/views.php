@@ -9,8 +9,7 @@
     const VIEW_CONSULTA_EQUIPOS = 'consulta-equipos';
     const VIEW_CONSULTA_UBICACIONES = 'consulta-ubicaciones';
     const VIEW_GENERAR_RESGUARDO = 'generar-resguardo';
-    const VIEW_REPORTE_INVENTARIO = 'reporte-inventario';
-    
+    const VIEW_REPORTE_INVENTARIO = 'reporte-inventario';    
     const VIEW_LOGIN = 'login';
     const VIEW_DEFAULT = 'default';                      
     const VIEW_MAIN = 'main';
@@ -19,5 +18,5 @@
     const TITLE = '<!--#title%-->';   
     const REGEX_FORM= '<!--#form%-->';
     const REGEX_BODY='<!--#body%-->';
-    const ACTION='<!--#action%-->';
+    const ACTION='#action%';
 ?>    

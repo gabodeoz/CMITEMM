@@ -20,11 +20,8 @@ class Control extends HtmlBo {
                 $html = $this->view_selected($view,'Consulta de empleados',PATH_FORM);                
                 break;                
             case VIEW_CREATE_USER:
-                $html = $this->view_selected($view,'Alta de usuarios',PATH_FORM);                
-                break;
-            case VIEW_CREATE_USER:
-                $html = $this->view_selected($view,'Alta de usuarios',PATH_FORM);                
-                break;
+                $html = $this->view_selected($view,'Alta de usuarios',PATH_FORM,CREATE_USER);                
+                break;            
             case VIEW_CONSULTA_EQUIPOS:                
                 $html = $this->view_selected($view,'Consulta de equipos',PATH_FORM);                
                 break;
@@ -47,14 +44,16 @@ class Control extends HtmlBo {
         print ($html);
     }
     
-    private function view_selected($view, $title, $path) {
+    private function view_selected($view, $title, $path, $action='') {
         $str_hmtml = '';
         if ($view == VIEW_LOGIN) {
             $str_html = $this->getHtml(PATH_TEMPLATE, VIEW_LOGIN);
         } else {
             $str_html = $this->getHtml(PATH_TEMPLATE, VIEW_MAIN);
         }
-        $str_html = str_replace(TITULO, $title, $str_html);
+        $str_html = str_replace(TITLE, $title, $str_html);
+         echo $str_action =PATH_CORE.$action;
+        $str_html = str_replace(ACTION,$str_action, $str_html);
         $str_html = str_replace(REGEX_BODY, $this->getHtml($path, $view), $str_html);
         return $str_html;
     }
