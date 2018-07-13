@@ -39,7 +39,7 @@ abstract class ConnectionDB {
             }
         }
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-        function exec_query($query,$array=array()) {            
+        protected function exec_query($query,$array=array()) {            
 	    try{            
                 $this->open_connection();
                 $sth = $this->conn->prepare($query);
@@ -54,7 +54,7 @@ abstract class ConnectionDB {
             $this->conn=null;
 	}
     # Traer resultados de una consulta en un Array
-        function get_results_from_query() {           
+        protected function get_results_from_query() {           
            try{
             $this->open_connection();
             $sth = $this->conn->prepare($this->query);

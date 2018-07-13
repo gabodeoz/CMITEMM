@@ -1,9 +1,8 @@
 <?php
-require_once 'core/dao/ConexionClass.php'; 
-
-class Users extends ConnectionDB {    
+ class Users extends ConnectionDB {  
+    
     public function createUser($array = array()) {    
-       $this->query = $this->getSql('create-user');
+  echo $this->query = $this->getSql('create-user');       
        $this->get_results_from_query($array);
     }
     //consulta de usuario por id
