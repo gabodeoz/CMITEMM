@@ -12,7 +12,7 @@ $view = str_replace(ROOT, '', $str_url);
 $view = str_replace(HOME, '', $view);
 $view = str_replace('/', '', $view);
 
-print_r($_POST);
+
 $control = new Control();
 $control-> handler_request($view,$_POST);
 

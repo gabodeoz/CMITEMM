@@ -39,10 +39,10 @@ abstract class ConnectionDB {
             }
         }
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-        protected function exec_query($query,$array=array()) {            
+        protected function exec_query($array=array()) {            
 	    try{            
                 $this->open_connection();
-                $sth = $this->conn->prepare($query);
+                $sth = $this->conn->prepare($this->query);
                 if(count($array)>0)
                      $sth->execute($array);
                  else
@@ -54,16 +54,20 @@ abstract class ConnectionDB {
             $this->conn=null;
 	}
     # Traer resultados de una consulta en un Array
-        protected function get_results_from_query() {           
+        protected function get_results_from_query($array= array()) {           
            try{
-            $this->open_connection();
-            $sth = $this->conn->prepare($this->query);
-            $sth->execute();
-           //
-            while ($this->rows[]= $sth->fetch(PDO::FETCH_ASSOC));
-             array_pop($this->rows);
+                $this->open_connection();
+                $sth = $this->conn->prepare($this->query);
+                    if(count($array)>0)
+                       $sth->execute($array);
+                    else
+                       $sth->execute();                 
+
+                while ($this->rows[]= $sth->fetch(PDO::FETCH_ASSOC));
+                    array_pop($this->rows);
+                    
             }catch (Exception $e){
-              Log::write ( $e->getMessage());
+                Log::write ( $e->getMessage());
             }                       
             $sth= null;
             $this->conn=null;
@@ -81,9 +85,9 @@ abstract class ConnectionDB {
             $str_sql = '';
             $file_path = PATH_SQL . $sqlFile . '.sql';
             if (is_readable($file_path)) {
-                $template = file_get_contents($file_path);
+                 $str_sql = file_get_contents($file_path);
             } 
-            return $str_sql;
+            $this->query = $str_sql;
         }
     # Método destructor del objeto
         function __destruct() {
