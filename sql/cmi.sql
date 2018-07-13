@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2018 a las 01:05:59
+-- Tiempo de generación: 13-07-2018 a las 03:28:43
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.0.27
 
@@ -138,7 +138,8 @@ CREATE TABLE `tusuarios` (
 --
 
 INSERT INTO `tusuarios` (`idusuario`, `username`, `nombre`, `apaterno`, `amaterno`, `email`, `password`, `enable`, `cidperfil`) VALUES
-(0, 'admon', 'admon', '', '', 'vgcruz@', 'vgcruz@', b'1', 0);
+(1, 'admon', 'admon', '', '', 'vgcruz@', 'vgcruz@', b'1', 0),
+(2, 'jjdjdj', 'jdjdjjd', 'jdjdjjd', 'dudjjd', 'jdjdj@kdkdk', '12345', b'1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -179,6 +180,16 @@ ALTER TABLE `templeados`
 --
 ALTER TABLE `tusuarios`
   ADD PRIMARY KEY (`idusuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `tusuarios`
+--
+ALTER TABLE `tusuarios`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
