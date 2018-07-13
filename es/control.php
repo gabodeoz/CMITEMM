@@ -4,6 +4,12 @@ class Control extends HtmlBo {
    public function handler_views ($view = '') {
         $html = '';
         switch ($view) {
+            case VIEW_CREATE_USER:
+                $html = $this->view_selected($view,'Alta de usuarios',PATH_FORM,CREATE_USER);                
+                break; 
+            case VIEW_LOGIN:
+                $html = $this->view_selected($view,'Inicio de sesion',PATH_FORM,VALIDATE_USER);                                                
+                break;
             case VIEW_ALTA_EMPLEADO:
                 $html = $this->view_selected($view,'Alta empleado',PATH_FORM);                
                 break;
@@ -18,10 +24,7 @@ class Control extends HtmlBo {
                 break; 
             case VIEW_CONSULTA_EMPLEADOS:
                 $html = $this->view_selected($view,'Consulta de empleados',PATH_FORM);                
-                break;                
-            case VIEW_CREATE_USER:
-                $html = $this->view_selected($view,'Alta de usuarios',PATH_FORM,CREATE_USER);                
-                break;            
+                break;                                       
             case VIEW_CONSULTA_EQUIPOS:                
                 $html = $this->view_selected($view,'Consulta de equipos',PATH_FORM);                
                 break;
@@ -37,9 +40,7 @@ class Control extends HtmlBo {
             case VIEW_USERS:
                 $html = $this->view_selected($view,'Usuarios',PATH_TABLE);                                                                
                 break;
-            case VIEW_LOGIN:
-                $html = $this->view_selected($view,'Inicio de sesion',PATH_FORM);                                                
-                break;
+            
         }//.switch 
         print ($html);
     }
@@ -52,11 +53,8 @@ class Control extends HtmlBo {
             $str_html = $this->getHtml(PATH_TEMPLATE, VIEW_MAIN);
         }
         $str_html = str_replace(REGEX_BODY, $this->getHtml($path, $view), $str_html);
-        $str_html = str_replace(TITLE, $title, $str_html);
-        $path_action =PATH_CORE.$action;
-        $str_html = str_replace("%action%", $path_action, $str_html);
-        
-        
+        $str_html = str_replace(TITLE, $title, $str_html);        
+        $str_html = str_replace("%action%",PATH_CORE.$action, $str_html);                
         return $str_html;
     }
 

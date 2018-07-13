@@ -3,11 +3,11 @@ $(document).ready(function () {
         $.ajax($("form").attr('action'), {
             type: 'POST', // http method
             data: $("form").serialize(), // data to submit
-            success: function (data, status) {
-                $.notify('Success');
+            success: function (status) {                
+                $.notify("Access granted", "success");
             },
             error: function (errorMessage) {
-                $.notify('Error:'+ errorMessage);                
+                $.notify('Error:'+ errorMessage,"error");                
             }
         });
         return false;
