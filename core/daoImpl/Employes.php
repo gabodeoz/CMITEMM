@@ -9,12 +9,12 @@ class Employes {
         $this->getSql('create-employe');       
         $this->exec_query($array);
     }
-    //consulta de usuario por id
+    //findById
     public function findById($array = array()) {    
        $this->query = $this->getSql('users-by-id');
        $this->get_results_from_query($array);
     }    
-    //Listado de usuarios
+    //findAll
     public function findAll() {     
        $this->query = $this->getSql('all-users');                
        $this->get_results_from_query();
