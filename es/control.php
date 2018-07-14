@@ -11,7 +11,7 @@ class Control extends HtmlBo {
                 $html = $this->view_selected($view,'Inicio de sesion',PATH_FORM,VALIDATE_USER);                                                
                 break;
             case VIEW_ALTA_EMPLEADO:
-                $html = $this->view_selected($view,'Alta empleado',PATH_FORM);                
+                $html = $this->view_selected($view,'Alta empleado',PATH_FORM,CREATE_EMPLOYE);                
                 break;
             case VIEW_REPORTE_INVENTARIO:
                 $html = $this->view_selected($view,'Reporte de inventario',PATH_FORM);                

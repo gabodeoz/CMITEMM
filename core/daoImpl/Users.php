@@ -2,8 +2,6 @@
  class Users extends ConnectionDB {  
     
     public function createUser($array = array()) {          
-        print_r($array);
-        echo '<br />';
         $this->getSql('create-user');       
         $this->exec_query($array);
     }
