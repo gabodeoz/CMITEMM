@@ -1,8 +1,13 @@
 <?php
  class Users extends ConnectionDB {  
-    
+    #create
     public function createUser($array = array()) {          
         $this->getSql('create-user');       
+        $this->exec_query($array);
+    }
+    #update
+    public function updateUser($array = array()) {          
+        $this->getSql('update-user');       
         $this->exec_query($array);
     }
     //consulta de usuario por id
