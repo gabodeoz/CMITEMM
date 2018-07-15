@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2018 a las 03:28:43
+-- Tiempo de generación: 15-07-2018 a las 03:41:51
 -- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.0.27
+-- Versión de PHP: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -118,6 +118,55 @@ CREATE TABLE `templeados` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tequpos`
+--
+
+CREATE TABLE `tequpos` (
+  `id_equipo` int(11) NOT NULL,
+  `precio_unitario` float DEFAULT NULL,
+  `fecha_recepcion` date DEFAULT NULL,
+  `tipo_equipo` tinyint(1) DEFAULT NULL,
+  `marca` varchar(50) DEFAULT NULL,
+  `placa` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `inventario_fisico` varchar(200) DEFAULT NULL,
+  `remision` varchar(200) DEFAULT NULL,
+  `fecha_expiracion` date DEFAULT NULL,
+  `company` tinyint(1) DEFAULT NULL,
+  `modelo` tinyint(1) DEFAULT NULL,
+  `mac_address` varchar(100) DEFAULT NULL,
+  `mac_address_wifi` varchar(100) DEFAULT NULL,
+  `tiempo_garantia` tinyint(1) DEFAULT NULL,
+  `year` tinyint(1) DEFAULT NULL,
+  `obsolencia` tinyint(1) DEFAULT NULL,
+  `tipo` tinyint(1) DEFAULT NULL,
+  `serie` varchar(100) DEFAULT NULL,
+  `status_gerencia` tinyint(1) DEFAULT NULL,
+  `mac_address_lan` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tubicaciones`
+--
+
+CREATE TABLE `tubicaciones` (
+  `clave` varchar(50) NOT NULL,
+  `colonia` varchar(200) DEFAULT NULL,
+  `codigo_postal` varchar(10) DEFAULT NULL,
+  `punta` varchar(50) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `calle` varchar(100) DEFAULT NULL,
+  `codigo` varchar(100) DEFAULT NULL,
+  `ciudad` varchar(100) DEFAULT NULL,
+  `region` varchar(100) DEFAULT NULL,
+  `sucursal` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tusuarios`
 --
 
@@ -138,6 +187,7 @@ CREATE TABLE `tusuarios` (
 --
 
 INSERT INTO `tusuarios` (`idusuario`, `username`, `nombre`, `apaterno`, `amaterno`, `email`, `password`, `enable`, `cidperfil`) VALUES
+(0, 'admon', 'admon', '', '', 'vgcruz@', 'vgcruz@', b'1', 0),
 (1, 'admon', 'admon', '', '', 'vgcruz@', 'vgcruz@', b'1', 0),
 (2, 'jjdjdj', 'jdjdjjd', 'jdjdjjd', 'dudjjd', 'jdjdj@kdkdk', '12345', b'1', 1);
 
@@ -176,6 +226,12 @@ ALTER TABLE `templeados`
   ADD PRIMARY KEY (`id_empleado`);
 
 --
+-- Indices de la tabla `tequpos`
+--
+ALTER TABLE `tequpos`
+  ADD PRIMARY KEY (`id_equipo`);
+
+--
 -- Indices de la tabla `tusuarios`
 --
 ALTER TABLE `tusuarios`
@@ -184,6 +240,12 @@ ALTER TABLE `tusuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `tequpos`
+--
+ALTER TABLE `tequpos`
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tusuarios`
