@@ -8,7 +8,8 @@ class Control  {
                $user->createUser($data);
                unset($user);
                break;
-          case VALIDATE_USER:
+          case VALIDATE_USER:              
+              print_r($data);
                $user = new Users();               
                $user->validateUser($data);
                break;

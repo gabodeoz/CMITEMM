@@ -26,6 +26,9 @@
             $this->query = $this->getSql('validate-user'); 
             $this->get_results_from_query($array);        
         }                                      
+        if(isset($this->rows[0])&&count($this->rows[0])==1){
+            print_r($this->rows);            
+        }
     }
     #Metodo destructor del objeto
     function __destruct() {

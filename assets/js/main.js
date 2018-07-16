@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("form").submit(function () {
+    $("form_").submit(function () {
         $.ajax($("form").attr('action'), {
             type: 'POST', // http method
             data: $("form").serialize(), // data to submit
