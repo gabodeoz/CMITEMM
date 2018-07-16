@@ -12,12 +12,12 @@
     }
     //consulta de usuario por id
     public function getUserById($array = array()) {    
-       $this->query = $this->getSql('users-by-id');
+       $this->getSql('users-by-id');
        $this->get_results_from_query($array);
     }    
     //Listado de usuarios
     public function getAllUsers() {     
-       $this->query = $this->getSql('all-users');                
+       $this->getSql('all-users');                
        $this->get_results_from_query();
     }
     //Validar usuario
