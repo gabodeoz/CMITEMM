@@ -1,19 +1,22 @@
-$("form").submit(function(){        
-    $.ajax({
+$(document).ready(function() {
+    $("#login").submit(function(){        
+         $.ajax({
       type: "POST",
       dataType: "json",
       url: $(this).attr('action'), //Relative or absolute path to response.php file
       data: $(this).serialize(),
-      success: function(data) {
-        //$.notify(response, "success");
-        alert("Returned json: " + data["response"]);
+      success: function(json) {
+          /* = JSON.parse(json);
+          if (value.response ==1){
+              window.location ='alta-usuario';
+          }
+          $.notify("Usuario ó contraseña no validos", "warn");*/
+          console.log(JSON.stringify(json));    
       }
-      ,error: function (errorMessage) {
-          //      $.notify('Error:'+ errorMessage,"error");                
-       }       
+      });
+        return false;
     });
-    return false;
-    });  
+});  
 /*
    <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,4 +28,18 @@ $("form").submit(function(){
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>        
          <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script> -->
          
-         */
+         
+          $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: $(this).attr('action'), //Relative or absolute path to response.php file
+      data: $(this).serialize(),
+      success: function(data) {
+        //$.notify(response, "success");
+        alert("Returned json: " + data["response"]);
+      }
+     /* ,error: function (errorMessage) {
+              $.notify('Error:'+ errorMessage,"error");                
+       }*/       
+   // });
+                
