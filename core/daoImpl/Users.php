@@ -25,8 +25,10 @@
         if(!empty($array)){
             $this->getSql('validate-user'); 
             $this->get_results_from_query($array);
-            print_r($this->rows);
-        }                                                
+            if (count($this->rows)==1)
+                return 1;
+        }                
+        return 0;
     }
     #Metodo destructor del objeto
     function __destruct() {

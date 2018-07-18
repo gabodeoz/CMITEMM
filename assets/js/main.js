@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $("form_").submit(function () {
+    $("form").submit(function () {
+        alert('jdjd');
         $.ajax($("form").attr('action'), {
             type: 'POST', // http method
             data: $("form").serialize(), // data to submit
@@ -8,10 +9,10 @@ $(document).ready(function () {
             },
             error: function (errorMessage) {
                 $.notify('Error:'+ errorMessage,"error");                
-            }
-        });
-        return false;
+      }
     });
+    return false;
+    });                  
 });
 
 
