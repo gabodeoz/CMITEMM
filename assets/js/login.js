@@ -2,16 +2,15 @@ $(document).ready(function() {
     $("#login").submit(function(){        
          $.ajax({
       type: "POST",
-      dataType: "json",
+      dataType:"JSON",
       url: $(this).attr('action'), //Relative or absolute path to response.php file
       data: $(this).serialize(),
-      success: function(json) {
-          /* = JSON.parse(json);
-          if (value.response ==1){
+      success: function(value) {       
+          if (value.response ==1)
               window.location ='alta-usuario';
-          }
-          $.notify("Usuario ó contraseña no validos", "warn");*/
-          console.log(JSON.stringify(json));    
+          else
+          $.notify("Usuario ó contraseña no validos", "warn");
+          console.log(value);    
       }
       });
         return false;
