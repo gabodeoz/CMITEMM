@@ -2,15 +2,18 @@ $(document).ready(function() {
     $("#login").submit(function(){        
          $.ajax({
       type: "POST",
-      dataType:"JSON",
+      dataType: "json",
       url: $(this).attr('action'), //Relative or absolute path to response.php file
       data: $(this).serialize(),
-      success: function(value) {       
-          if (value.response ==1)
-              window.location ='alta-usuario';
-          else
-          $.notify("Usuario ó contraseña no validos", "warn");
-          console.log(value);    
+      beforeSend:function(){ 
+			$("#loading").show();
+      },
+      success: function(value) {
+          if (value.response ==1){
+             window.location ='alta-usuario';
+             console.log(value.response);
+        }else
+          $.notify("Usuario ó contraseña no validos", "warn");     
       }
       });
         return false;
