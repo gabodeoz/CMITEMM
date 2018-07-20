@@ -13,7 +13,8 @@ $(document).ready(function() {
              window.location ='alta-usuario';
              console.log(value.response);
         }else
-          $.notify("Usuario ó contraseña no validos", "warn");     
+          $.notify("Usuario ó contraseña no validos", "warn");
+          $("#loading").hide();
       }
       });
         return false;
