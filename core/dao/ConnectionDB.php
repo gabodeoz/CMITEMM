@@ -69,8 +69,7 @@ abstract class ConnectionDB {
                        $sth->execute();                 
 
                 while ($this->rows[]= $sth->fetch(PDO::FETCH_ASSOC));
-                    array_pop($this->rows);
-                    
+                    array_pop($this->rows);                    
             }catch (Exception $e){
                 Log::write ( $e->getMessage());
             }                       

@@ -17,8 +17,8 @@ $str_url = $_SERVER['REQUEST_URI'];
 $view = str_replace(ROOT, '', $str_url);
 $view = str_replace(CORE, '', $view);
 $view = str_replace('/', '', $view);
-#
+#print_r ($_POST);
 $control = new Control();
 $json = $control-> handler_request($view,$_POST);
-echo $json;
+ print($json);
 ?>

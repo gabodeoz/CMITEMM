@@ -1,7 +1,6 @@
 <?php
 class Control  {
-   public function handler_request ($request = '', $data = array()) {
-        $response= '';        
+   public function handler_request ($request = '', $data = array()) {        
         switch ($request) {
           case  CREATE_USER:
                $user = new UsuarioBo();               
@@ -17,8 +16,9 @@ class Control  {
                $employe = new Employes();
                $employe->create($data);
                break;
+           /**/
         }//.switch                
-        print ($response);
+        
     }        
 //.handler
 }

@@ -12,6 +12,8 @@ $(document).ready(function () {
                 }else{
                     $.notify("No se pudo generar el registro", "error");
                 }
+                 var str = JSON.stringify(val); 
+                 console.log(str);  
                 $("#loading").hide();
             },
             error: function (errorMessage) {
@@ -19,7 +21,7 @@ $(document).ready(function () {
                 $.notify('Error:'+ errorMessage,"error");                
             }
     });
-    return true;
+    return false;
     });                  
 });
 
