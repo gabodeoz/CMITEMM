@@ -18,6 +18,8 @@ abstract class ConnectionDB {
     public $query;
     public $rows = array();
     private $conn;
+    protected $response = 0;
+    
           
     function __construct(){            
         $this->engine = 'mysql';
@@ -39,20 +41,23 @@ abstract class ConnectionDB {
             }
         }
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-        protected function exec_query($array=array()) {            
-	    try{            
+        protected function exec_query($array = array()) {
+            try {
                 $this->open_connection();
                 $sth = $this->conn->prepare($this->query);
-                if(count($array)>0)
-                     $sth->execute($array);
-                 else
-                     $sth->execute();
-                 }catch (Exception $e){
-                   Log::write ( $e->getMessage());
-                 } 
-	    $sth= null;
-            $this->conn=null;
-	}
+                if (count($array) > 0) {
+                    $sth->execute($array);
+                } else {
+                    $sth->execute();
+                }
+                $this->response=$sth->rowCount();
+            } catch (Exception $e) {
+                Log::write($e->getMessage());                
+            }
+            $sth = null;
+            $this->conn = null;
+        }
+
     # Traer resultados de una consulta en un Array
         protected function get_results_from_query($array= array()) {           
            try{

@@ -6,9 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <script src="https://code.jquery.com/jquery-2.2.4.js"
                 integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-                crossorigin="anonymous"></script>
-        <script src="../assets/js/login.js"></script>
+                crossorigin="anonymous"></script>        
         <script src="../assets/js/notify.js"></script>
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+        <script>
+            $(document).ready(function() {
+                $("#login").submit(function(){        
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: $(this).attr('action'), //Relative or absolute path to response.php file
+                        data: $(this).serialize(),
+                        beforeSend:function(){ 
+                                          $("#loading").show();
+                        },
+                        success: function (value) {
+                            if (value.response == 1) {
+                                window.location = '%VIEW_HOME%';
+                                console.log(value.response);
+                            } else
+                                $.notify("Usuario ó contraseña no validos", "warn");
+                            $("#loading").hide();
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
     </head>
     <body>
         <!--#body%-->        

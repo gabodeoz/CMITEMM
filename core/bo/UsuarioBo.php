@@ -6,6 +6,19 @@
  */
 
 class UsuarioBo {
+    #createUser
+    function createUser($data =array()){
+        $array_response = array();        
+        $response =0;
+        if (!empty($data)) {
+        $user = new Users();
+                $response = $user->validateUser($data);
+                unset ($user);
+        }        
+        $array_response['response']=$response;
+        return json_encode($array_response);        
+    }    
+    #validateUser
     function validateUser($data =array()){          
        $array_response = array();
         $response = 0;

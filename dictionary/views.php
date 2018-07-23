@@ -13,7 +13,7 @@
     const VIEW_LOGIN = 'login';
     const VIEW_DEFAULT = 'default';                      
     const VIEW_MAIN = 'main';
-        
+    const VIEW_HOME = 'home';
     #RENDERED
     const TITLE = '<!--#title%-->';   
     const REGEX_FORM= '<!--#form%-->';

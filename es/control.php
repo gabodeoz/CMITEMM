@@ -40,7 +40,9 @@ class Control extends HtmlBo {
             case VIEW_USERS:
                 $html = $this->view_selected($view,'Usuarios',PATH_TABLE);                                                                
                 break;
-            
+            case VIEW_HOME:
+                $html = $this->view_selected($view,'Principal',PATH_FORM);                                                                
+                break;
         }//.switch 
         print ($html);
     }
@@ -54,7 +56,8 @@ class Control extends HtmlBo {
         }
         $str_html = str_replace(REGEX_BODY, $this->getHtml($path, $view), $str_html);
         $str_html = str_replace(TITLE, $title, $str_html);        
-        $str_html = str_replace("%action%",PATH_CORE.$action, $str_html);                
+        $str_html = str_replace("%action%",PATH_CORE.$action, $str_html); 
+        $str_html = str_replace("%VIEW_HOME%",VIEW_HOME, $str_html); 
         return $str_html;
     }
 

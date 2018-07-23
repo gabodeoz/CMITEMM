@@ -4,6 +4,7 @@
     public function createUser($array = array()) {          
         $this->getSql('create-user');       
         $this->exec_query($array);
+        return $this->response;
     }
     #update
     public function updateUser($array = array()) {          

@@ -4,15 +4,15 @@ class Control  {
         $response= '';        
         switch ($request) {
           case  CREATE_USER:
-               $user = new Users();               
-               $user->createUser($data);
+               $user = new UsuarioBo();               
+               return $user->createUser($data);
                unset($user);
                break;
           case VALIDATE_USER:              
                $user = new UsuarioBo();               
                return $user->validateUser($data);
                $unset($user);
-               break;
+               break;                                 
            case CREATE_EMPLOYE:
                $employe = new Employes();
                $employe->create($data);
