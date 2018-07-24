@@ -1,5 +1,6 @@
 <?php
  class Users extends ConnectionDB {  
+    private $result = array();
     #create
     public function createUser($array = array()) {          
         $this->getSql('create-user');       
@@ -19,8 +20,14 @@
     //Listado de usuarios
     public function getAllUsers() {     
        $this->getSql('all-users');                
-       $this->get_results_from_query();
-       return $this->rows;
+       $this->get_result_objects();
+       $total= count($this->rows);
+       if($total >= 1)
+       $this->result ['draw']=1;
+       $this->result ["recordsTotal"]=$total;
+       $this->result ["recordsFiltered"]=$total;
+       $this->result['data']=$this->data;  
+       return $this->result;
     }
     //Validar usuario
     public function validateUser($array = array()) {          

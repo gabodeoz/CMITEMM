@@ -16,11 +16,12 @@ abstract class ConnectionDB {
     private $pass;  //
     private $dbname;  //
     public $query;
-    public $rows = array();
+    protected $rows = array();
     private $conn;
     protected $response = 0;
+    public $objects= array();
     
-          
+              
     function __construct(){            
         $this->engine = 'mysql';
         $this->server = 'localhost';
@@ -75,7 +76,29 @@ abstract class ConnectionDB {
             }                       
             $sth= null;
             $this->conn=null;
-        }                
+        }
+    #get object list
+    protected function get_result_objects($array = array()) {            
+            $i=0;            
+            $this->open_connection();
+            $sth = $this->conn->prepare($this->query);
+                    if(count($array)>0)
+                       $sth->execute($array);
+                    else
+                       $sth->execute();                 
+                                                                
+            while ($this->rows[]= $sth->fetch(PDO::FETCH_ASSOC)){
+                $nestedData=array();
+               foreach($this->rows[$i] as $key=>$value){
+                  $nestedData[] =$this->rows[$i][$key];
+               }//fin de foreach 
+               $this->data[] = $nestedData;
+               $i++;
+            }//fin de while                       
+            array_pop($this->rows);
+            $sth= null;
+            $this->conn=null;
+	}    
     #get string connection    
         private function getStrConection($engine){            
             if($engine=='sqlsrv')

@@ -40,9 +40,9 @@ class UsuarioBo {
     }
     #getAll
     function getAll(){
-        $user = new Users();    
-        $this->data['data'] =$user->getAllUsers();
-        return json_encode($this->data);
+        $user = new Users();        
+        return json_encode($user->getAllUsers());
+        unset($user);
     }
     #Metodo destructor del objeto
     function __destruct() {
