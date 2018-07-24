@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("form").submit(function () {                
+    $("#insert").submit(function () {                
         $.ajax($(this).attr('action'), {
             type: 'POST', // http method
             data: $(this).serialize(), // data to submit
@@ -8,9 +8,9 @@ $(document).ready(function () {
             },
             success: function (val) {
                 if(val.response == 1){
-                    $.notify("El registro fue exitoso", "success");
+                    $.notify(val.message, "success");
                 }else{
-                    $.notify("No se pudo generar el registro", "error");
+                    $.notify(val.message, "error");
                 }
                  var str = JSON.stringify(val); 
                  console.log(str);  

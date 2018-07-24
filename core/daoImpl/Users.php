@@ -20,6 +20,7 @@
     public function getAllUsers() {     
        $this->getSql('all-users');                
        $this->get_results_from_query();
+       return $this->rows;
     }
     //Validar usuario
     public function validateUser($array = array()) {          

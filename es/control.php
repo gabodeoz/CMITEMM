@@ -1,6 +1,6 @@
 <?php
 class Control extends HtmlBo {
-
+#handler_views
    public function handler_views ($view = '') {
         $html = '';
         switch ($view) {
@@ -9,6 +9,9 @@ class Control extends HtmlBo {
                 break; 
             case VIEW_LOGIN:
                 $html = $this->view_selected($view,'Inicio de sesion',PATH_FORM,VALIDATE_USER);                                                
+                break;
+            case VIEW_USERS:
+                $html = $this->view_selected($view,'Usuarios',PATH_TABLE,GET_USERS);                                                                
                 break;
             case VIEW_ALTA_EMPLEADO:
                 $html = $this->view_selected($view,'Alta empleado',PATH_FORM,CREATE_EMPLOYE);                
@@ -36,10 +39,7 @@ class Control extends HtmlBo {
                 break;
             case VIEW_ALTA_EQUIPOS:
                 $html = $this->view_selected($view,'Alta de equipos',PATH_FORM);                                                
-                break;
-            case VIEW_USERS:
-                $html = $this->view_selected($view,'Usuarios',PATH_TABLE);                                                                
-                break;
+                break;            
             case VIEW_HOME:
                 $html = $this->view_selected($view,'Principal',PATH_FORM);                                                                
                 break;

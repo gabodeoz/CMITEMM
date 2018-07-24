@@ -16,6 +16,11 @@ class Control  {
                $employe = new Employes();
                $employe->create($data);
                break;
+           case  GET_USERS:
+               $user = new UsuarioBo();               
+               return $user->getAll();
+               unset($user);
+               break;
            /**/
         }//.switch                
         

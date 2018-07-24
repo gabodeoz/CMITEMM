@@ -6,31 +6,43 @@
  */
 
 class UsuarioBo {
+    private $response = 0;
+    private $array_response = array();
+    private $message = '';
+    private $data;
     #createUser
-    function createUser($data =array()){
-        $array_response = array();        
-        $response =0;
+    public function createUser($data =array()){                        
         if (!empty($data)) {
             $user = new Users();
-            $response = $user->createUser($data);
+            $this->response = $user->createUser($data);
             unset ($user);
-        }        
-        $array_response['response']=$response;
-        return json_encode($array_response);        
+        }
+        if($this->response ==1){
+            $this->message = 'El usuario ha sido creado.';        
+        }else{
+            $this->message = 'El usuario no ha podido ser creado.';        
+        }
+        $this->array_response['message']=$this->message;        
+        $this->array_response['response']=$this->response;
+        return json_encode($this->array_response);        
     }    
     #validateUser
-    function validateUser($data =array()){          
-       $array_response = array();
-        $response = 0;
+    public function validateUser($data =array()){                 
        if (!empty($data)) {
             if (array_key_exists('username', $data) && array_key_exists('password', $data)) {
                 $user = new Users();
-                $response = $user->validateUser($data);
+                $this->response = $user->validateUser($data);
                 unset ($user);
             }
         }
-        $array_response['response']=$response;
-        return json_encode($array_response);
+        $this->array_response['response']=$this->response;
+        return json_encode($this->array_response);
+    }
+    #getAll
+    function getAll(){
+        $user = new Users();    
+        $this->data['data'] =$user->getAllUsers();
+        return json_encode($this->data);
     }
     #Metodo destructor del objeto
     function __destruct() {
