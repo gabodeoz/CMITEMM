@@ -8,4 +8,5 @@
     const PATH_IMG ='../assets/img/';  
     const PATH_SQL='../sql/';
     const PATH_CORE='../core/';
+    const PATH_JS = '../assets/js/'
 ?>

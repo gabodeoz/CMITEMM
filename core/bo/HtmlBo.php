@@ -9,8 +9,7 @@ class  HtmlBo {
         //print_r($array_de_resultados);
         $array_coincidencias = array();
         $template = get_template($html);
-        preg_match($regex, $template, $array_coincidencias);
-        //print_r($array_coincidencias);
+        preg_match($regex, $template, $array_coincidencias);        
         $codigo = $array_coincidencias[0];
 
         $render_options = '';

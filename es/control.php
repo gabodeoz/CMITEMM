@@ -48,6 +48,7 @@ class Control extends HtmlBo {
     }
     
     private function view_selected($view, $title, $path, $action='') {
+        $file_js = '';
         $str_hmtml = '';
         if ($view == VIEW_LOGIN) {
             $str_html = $this->getHtml(PATH_TEMPLATE, VIEW_LOGIN);
@@ -58,6 +59,14 @@ class Control extends HtmlBo {
         $str_html = str_replace(TITLE, $title, $str_html);        
         $str_html = str_replace("%action%",PATH_CORE.$action, $str_html); 
         $str_html = str_replace("%VIEW_HOME%",VIEW_HOME, $str_html); 
+        
+        $str_html = str_replace(REGEX_BODY, $this->getHtml($path, $view), $str_html);
+        #verificamos si existe javascript       
+        $file_js =PATH_JS.$view.'.js';
+        if(is_readable($file_js)){               
+            $str_html = str_replace(REGEX_JS, file_get_contents($file_js), $str_html);            
+        }
+        echo $str_js;
         return $str_html;
     }
 
