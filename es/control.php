@@ -65,8 +65,7 @@ class Control extends HtmlBo {
         $file_js =PATH_JS.$view.'.js';
         if(is_readable($file_js)){               
             $str_html = str_replace(REGEX_JS, file_get_contents($file_js), $str_html);            
-        }
-        echo $str_js;
+        }        
         return $str_html;
     }
 
