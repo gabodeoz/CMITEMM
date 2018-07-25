@@ -18,6 +18,6 @@
     const TITLE = '<!--#title%-->';   
     const REGEX_FORM= '<!--#form%-->';
     const REGEX_BODY='<!--#body%-->';
-    const REGEX_JS='//script';
+    const REGEX_JS='//script%';
     const ACTION='%action%';
 ?>    
